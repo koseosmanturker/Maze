@@ -17,7 +17,7 @@ public class Main {
 	    
 	    int[][] mazeArray = new int[30][];
 	    int rowIdx = 0;
-	    
+	    int colSize = 0;
 	    while(scan.hasNext()) {
 	    	
 	    	String line = scan.next();
@@ -27,11 +27,11 @@ public class Main {
 	    		mazeArray[rowIdx][i] = line.charAt(i) - 48;
 	    	}
 	    	rowIdx++;
-
+	    	colSize = line.length();
 	    }
 	    
 	   
-	    Maze maze = new Maze(mazeArray, rowIdx);
+	    Maze maze = new Maze(mazeArray, rowIdx, colSize);
 	    
 	    scan.close();
 	}
@@ -39,9 +39,8 @@ public class Main {
 	
 	public static void main(String[] args) throws FileNotFoundException {
 		
-		String fileName = "maze.txt";
+		String fileName = "maze";
 		readMaze(fileName);
-		System.out.println("end");
 
 	}
 
